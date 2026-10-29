@@ -127,7 +127,7 @@ async def translate_lines(lines: list[SceneLine], target_lang: str, provider: LL
                 break
         if pending:
             raise EngineError(
-                f"Модель перевела не все реплики (пропущено {len(pending)} из {len(chunk)}). Нажмите «Перевести» ещё раз.")
+                f"Модель перевела не все реплики (пропущено {len(pending)} из {len(chunk)}). Нажми «Перевести» ещё раз.")
     return [r or "" for r in result]
 
 

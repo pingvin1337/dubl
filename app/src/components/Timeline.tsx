@@ -147,7 +147,7 @@ export function Timeline({ duration, lines, speakers, cuts, chapters = [], scene
   const hasChapters = chapters.length > 0;
   const labels: { key: string; node: React.ReactNode }[] = [
     { key: "ruler", node: <div className="rl" /> },
-    { key: "scenes", node: <div>Ваши сцены</div> },
+    { key: "scenes", node: <div>Твои сцены</div> },
     ...(hasChapters ? [{ key: "chap", node: <div>Главы файла</div> }] : []),
     ...speakerRows.map((s) => ({
       key: s.id,

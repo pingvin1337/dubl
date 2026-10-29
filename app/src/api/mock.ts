@@ -29,7 +29,7 @@ export interface MockOptions {
   ml?: boolean;
 }
 
-export const ML_MISSING_TEXT = "Не установлены нейросети — без них нельзя распознавать речь и отделять голоса. Скачайте их один раз (~1,3 ГБ).";
+export const ML_MISSING_TEXT = "Не установлены нейросети — без них нельзя распознавать речь и отделять голоса. Скачай их один раз (~1,3 ГБ).";
 
 const ANALYZE_STEPS: [string, string][] = [
   ["probe", "Чтение файла"], ["audio", "Звук из видео"], ["subtitles", "Субтитры из файла"],
@@ -364,7 +364,7 @@ export class MockEngine implements Engine {
 
   async createProject(r: CreateProjectOptions): Promise<ProjectWithJob> {
     const src = r.path ?? r.url;
-    if (!src) throw new EngineError("Укажите файл или ссылку.");
+    if (!src) throw new EngineError("Укажи файл или ссылку.");
     const name = src.split(/[\\/]/).pop() ?? src;
     const media = mockProbe(name);
     media.path = src;
@@ -410,7 +410,7 @@ export class MockEngine implements Engine {
     const p = this.get(pid);
     const an = p.analysis;
     if (!an) throw new EngineError("Проект ещё не разобран.");
-    if (a === b) throw new EngineError("Выберите двух разных говорящих.");
+    if (a === b) throw new EngineError("Выбери двух разных говорящих.");
     const mergeId = `m${this.seq++}`;
     this.merges.set(`${pid}/${mergeId}`, clone(p));
     an.lines.forEach((l) => { if (l.speaker_id === b) l.speaker_id = a; });
